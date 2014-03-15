@@ -30,6 +30,10 @@
             android:name="com.example.homeweatherstation.SensorActivity"
             android:label="@string/title_activity_sensor" >
         </activity>
+        <activity
+            android:name="com.example.homeweatherstation.ResultActivity"
+            android:label="@string/title_activity_result" >
+        </activity>
     </application>
 
 </manifest>

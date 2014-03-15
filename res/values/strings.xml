@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_server">ServerActivity</string>
     <string name="title_activity_sensor">SensorActivity</string>
+    <string name="title_activity_result">ResultActivity</string>
 
 </resources>
