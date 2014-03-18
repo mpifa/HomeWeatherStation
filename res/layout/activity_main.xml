@@ -9,20 +9,39 @@
     tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/btnServer"
+        android:id="@+id/btnSensor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="67dp"
-        android:text="" />
+        android:layout_marginTop="74dp"
+        android:text="@string/MainButton1" />
 
     <Button
-        android:id="@+id/btnSensor"
+        android:id="@+id/btnServer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btnServer"
-        android:layout_centerVertical="true"
-        android:text="" />
+        android:layout_below="@+id/btnSensor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:text="@string/MainButton2" />
+
+    <Button
+        android:id="@+id/Settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnServer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="@string/MainButton3" />
+
+    <Button
+        android:id="@+id/Exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Settings"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="@string/MainButton4" />
 
 </RelativeLayout>

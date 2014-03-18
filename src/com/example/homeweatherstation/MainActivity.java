@@ -10,21 +10,19 @@ import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener{
 
+	Button serverBtn, sensorBtn, exitBtn;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Button serverbtn = (Button) findViewById(R.id.btnServer);
-		Button sensorbtn = (Button) findViewById(R.id.btnSensor);
-		serverbtn.setOnClickListener(this);
-		sensorbtn.setOnClickListener(this);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
+		serverBtn = (Button) findViewById(R.id.btnServer);
+		sensorBtn = (Button) findViewById(R.id.btnSensor);
+		exitBtn = (Button) findViewById(R.id.Exit);
+		
+		serverBtn.setOnClickListener(this);
+		sensorBtn.setOnClickListener(this);
+		exitBtn.setOnClickListener(this);
 	}
 	
 	@Override
@@ -37,6 +35,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	    case R.id.btnSensor:
 	    	startActivity(new Intent(this, SensorActivity.class));
 	    	break;
+	    case R.id.Exit:
+	    	System.exit(0);
 	    }
 	}
 
