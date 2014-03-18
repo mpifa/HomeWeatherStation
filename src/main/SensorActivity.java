@@ -14,12 +14,16 @@ import android.util.AttributeSet;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.homeweatherstation.R;
 
@@ -86,16 +90,28 @@ public class SensorActivity extends Activity {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+
 		        ImageView imageView;
 		        if (convertView == null) {  // if it's not recycled, initialize some attributes
 		            imageView = new ImageView(mContext);
-		            imageView.setLayoutParams(new GridView.LayoutParams(100, 100));
+		            imageView.setLayoutParams(new GridView.LayoutParams(200, 200));
+		            imageView.setScaleType(ImageView.ScaleType.CENTER);
+		            imageView.setPadding(8, 8, 8, 8);
 		        } else {
 		            imageView = (ImageView) convertView;
 		        }
-		        imageView.setImageResource(R.drawable.barometro);
+		        imageView.setImageResource(sensorLst.get(position).getDrawableID());
+		        imageView.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getApplicationContext(), "AA", Toast.LENGTH_SHORT).show();
+					}
+				});
 		        return imageView;
 		}
+
 	}
 
 	public class Item {
@@ -106,7 +122,7 @@ public class SensorActivity extends Activity {
 		public Item(String name, String sensorType, int drawableID) {
 			this.name = name;
 			this.sensorType = sensorType;
-			this.drawableID = 0;
+			this.drawableID = drawableID;
 		}
 
 		public String getName() {
