@@ -69,13 +69,11 @@ public class SensorActivity extends Activity {
 	public class ImageButtonAdapter extends BaseAdapter {
 
 		private List<Item> sensorLst;
-		//private LayoutInflater inflater;
 		private Context mContext;
 		public ImageButtonAdapter(Context applicationContext,
 				List<Item> sensorLst) {
 			this.sensorLst = sensorLst;
 			this.mContext = applicationContext;
-		//	this.inflater = LayoutInflater.from(applicationContext);
 
 		}
 
