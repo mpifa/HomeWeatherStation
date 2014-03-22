@@ -50,7 +50,7 @@ public class SensorActivity extends Activity {
 					Sensor.TYPE_AMBIENT_TEMPERATURE,
 					R.drawable.blue_temperature));
 		}
-		this.sensorList.add(new Item("Noise", 999, R.drawable.noise));
+		this.sensorList.add(new Item("Noise", R.drawable.noise));
 		// GRID VIEW
 		this.gridV.setAdapter(new ImageButtonAdapter(getApplicationContext(),
 				sensorList));
@@ -74,7 +74,7 @@ public class SensorActivity extends Activity {
 		});
 	}
 
-	public class ImageButtonAdapter extends BaseAdapter {
+	public static class ImageButtonAdapter extends BaseAdapter {
 
 		private List<Item> sensorLst;
 		private Context mContext;
@@ -118,7 +118,5 @@ public class SensorActivity extends Activity {
 			imageView.setImageResource(sensorLst.get(position).getDrawableID());
 			return imageView;
 		}
-
 	}
-
 }

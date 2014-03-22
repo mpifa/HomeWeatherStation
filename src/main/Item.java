@@ -13,6 +13,13 @@ public class Item implements Parcelable {
 		this.sensorType = sensorType;
 		this.drawableID = drawableID;
 	}
+	
+	public Item(String name, int drawableID) {
+		this.name = name;
+		this.sensorType = 0;
+		this.drawableID = drawableID;
+	}
+	
 
 	public String getName() {
 		return this.name;

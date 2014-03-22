@@ -16,6 +16,7 @@ public class ResultActivity extends Activity implements SensorEventListener {
 	private Sensor sensor;
 	private Item item;
 	private TextView result;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -28,16 +29,12 @@ public class ResultActivity extends Activity implements SensorEventListener {
 
 		if (sensor != null && item.getName().equals("Height")) {
 			// Sensor 6
-			result.setText(sensor.toString());
 		} else if (sensor != null && item.getName().equals("Barometer")) {
 			// Sensor 6
-			result.setText(sensor.toString());
 		} else if (sensor != null && item.getName().equals("Humidity")) {
 			// Sensor 12
-			result.setText(sensor.toString());
 		} else if (sensor != null && item.getName().equals("Temperature")) {
 			// Sensor 13
-			result.setText(sensor.toString());
 		}
 
 	}
@@ -51,13 +48,13 @@ public class ResultActivity extends Activity implements SensorEventListener {
 		float[] values = event.values;
 
 		if (event.sensor.getType() == 6 && item.getName().equals("Height")) {
-			result.setText(Float.toString(values[1]));
+			heightManager(values);
 		} else if (event.sensor.getType() == 6 && item.getName().equals("Barometer")) {
-			result.setText(Float.toString(values[0]));
+			barometerManager(values);
 		} else if (event.sensor.getType() == 12) {
-			result.setText(Float.toString(values[0]));
+			humidityManager(values);
 		} else if (event.sensor.getType() == 13) {
-			result.setText(Float.toString(values[0]));
+			temperatureManager(values);
 		}
 	}
 
@@ -74,4 +71,19 @@ public class ResultActivity extends Activity implements SensorEventListener {
 		sManager.unregisterListener(this);
 	}
 
+	private void barometerManager(float[] values) {
+		result.setText(Float.toString(values[0]));
+	}
+
+	private void heightManager(float[] values) {
+		result.setText(Float.toString(values[1]));
+	}
+
+	private void temperatureManager(float[] values) {
+		result.setText(Float.toString(values[0]));
+	}
+
+	private void humidityManager(float[] values) {
+		result.setText(Float.toString(values[0]));
+	}
 }
