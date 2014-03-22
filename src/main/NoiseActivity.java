@@ -38,13 +38,13 @@ public class NoiseActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_noise);
 		tv = (TextView) findViewById(R.id.DB);
-		
+
 		initRecorder();
 		mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 		final Button button = (Button) findViewById(R.id.start);
 		button.setText(startRecordingLabel);
 		button.setOnClickListener(new OnClickListener() {
-	
+
 			@Override
 			public void onClick(View v) {
 				if (!mIsRecording) {
@@ -52,15 +52,14 @@ public class NoiseActivity extends Activity {
 					mIsRecording = true;
 					mRecorder.startRecording();
 					startBufferedWrite();
-				}
-				else{
+				} else {
 					button.setText("Start");
 					mIsRecording = false;
 					mRecorder.stop();
 				}
 			}
 		});
-		
+
 		this.handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
@@ -73,15 +72,23 @@ public class NoiseActivity extends Activity {
 			}
 		};
 	}
+
+	/**
+	 * Method to start configure bandwidth and initialize a buffer.
+	 */
 	private void initRecorder() {
-		int bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-				AudioFormat.ENCODING_PCM_16BIT);
+		int bufferSize = AudioRecord.getMinBufferSize(SAMPLE_RATE,
+				AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
 		mBuffer = new short[bufferSize];
-		mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO,
-				AudioFormat.ENCODING_PCM_16BIT, bufferSize);
+		mRecorder = new AudioRecord(MediaRecorder.AudioSource.MIC, SAMPLE_RATE,
+				AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT,
+				bufferSize);
 	}
-	
-	private void startBufferedWrite( ) {
+
+	/**
+	 * Use a thread to calculate in background.
+	 */
+	private void startBufferedWrite() {
 		new Thread(new Runnable() {
 
 			@Override
@@ -96,14 +103,15 @@ public class NoiseActivity extends Activity {
 						final double amplitude = sum / readSize;
 						mProgressBar.setProgress((int) Math.sqrt(amplitude));
 						Message msg = new Message();
-						double d = 10*Math.log10((int) Math.sqrt(amplitude)*(int) Math.sqrt(amplitude));
-						msg.obj = ""+ (int) d + "dB";
+						double d = 10 * Math.log10((int) Math.sqrt(amplitude)
+								* (int) Math.sqrt(amplitude));
+						msg.obj = "" + (int) d + "dB";
 						NoiseActivity.this.handler.sendMessage(msg);
 					}
 				}
 			}
 		}).start();
-		
+
 	}
 
 	@Override
@@ -111,6 +119,5 @@ public class NoiseActivity extends Activity {
 		mRecorder.release();
 		super.onDestroy();
 	}
-	
-	
+
 }
