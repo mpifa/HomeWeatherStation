@@ -7,8 +7,10 @@
     <string name="MainButton2">Consultar servidor</string>
     <string name="MainButton3">Configuración</string>
     <string name="MainButton4">Salir</string>
-    <string name="title_activity_server">ServerActivity</string>
-    <string name="title_activity_sensor">SensorActivity</string>
-    <string name="title_activity_result">ResultActivity</string>
+    <string name="title_activity_server"></string>
+    <string name="title_activity_sensor"></string>
+    <string name="title_activity_result"></string>
+    <string name="title_activity_noise">NoiseActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
