@@ -4,9 +4,38 @@
         <item name="android:background">#323331</item>
     </style>
 
-    <style name="Theme" parent="@android:style/Theme.Holo">
-        <item name="android:windowBackground">@android:color/background_dark</item>
-        <item name="android:windowTitleBackgroundStyle">@android:style/Holo.ButtonBar</item>
+    <style name = "Header">
+        <item name="android:background">@drawable/green_grad</item>
+        <item name="android:padding">10sp</item>
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name ="android:gravity">center_horizontal|center_vertical</item>
+        
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+    </style>
+    
+    <style name="Button">
+        <item name="android:background">@drawable/green_grad</item>
+        <item name="android:padding">10sp</item>
+        <item name ="android:gravity">center_horizontal|center_vertical</item>
+        
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        
+        <item name="android:shadowColor">@android:color/black</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">-1</item>
+    </style>
+    <style name="Theme" parent="android:Theme.Holo">
+        <item name="android:windowBackground">@drawable/cloud</item>
+        <item name="android:windowTitleBackgroundStyle">@style/Header</item>
     </style>
 
 </resources>

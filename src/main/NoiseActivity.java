@@ -1,24 +1,19 @@
 package main;
 
-import java.io.File;
-import java.io.IOException;
-
-import com.example.homeweatherstation.R;
-import com.example.homeweatherstation.R.layout;
-
+import android.app.Activity;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.app.Activity;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.homeweatherstation.R;
 
 public class NoiseActivity extends Activity {
 

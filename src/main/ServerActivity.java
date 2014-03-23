@@ -1,26 +1,21 @@
 package main;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.SensorActivity.ImageButtonAdapter;
-
-import com.example.homeweatherstation.R;
-
+import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.example.homeweatherstation.R;
 
 public class ServerActivity extends Activity {
 

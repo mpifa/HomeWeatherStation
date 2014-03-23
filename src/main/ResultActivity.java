@@ -1,10 +1,16 @@
 package main;
 
 import android.app.Activity;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,7 +26,11 @@ public class ResultActivity extends Activity implements SensorEventListener {
 	private TextView result;
 	private Handler handler;
 	private Object[] buffer;
-
+	private LocationManager locationManager;
+	private LocationListener locationListener;
+	private ConnectivityManager connManager;
+	private NetworkInfo netInfo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,14 +39,40 @@ public class ResultActivity extends Activity implements SensorEventListener {
 		this.buffer = new Object[60];
 		this.item = getIntent().getParcelableExtra("Sensor");
 		this.result = (TextView) findViewById(R.id.result);
+		//SENSORS
 		this.sManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 		this.sensor = sManager.getDefaultSensor(item.getSensorType());
+		//INTERNET
+		this.connManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		this.netInfo = connManager.getActiveNetworkInfo();
+		//GET LOCATION
+		this.locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		this.locationListener = new LocationListener() {
+			
+			@Override
+			public void onStatusChanged(String provider, int status, Bundle extras) {
+			}
+			
+			@Override
+			public void onProviderEnabled(String provider) {				
+			}
+			
+			@Override
+			public void onProviderDisabled(String provider) {
+			}
+			
+			@Override
+			public void onLocationChanged(Location location) {
+			}
+		};
+		this.locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		//HANDLER TO GET DATA RUNNING IN BACKGROUND
 		this.handler = new Handler() {
 			@Override
 			public void handleMessage(Message msg) {
 				switch (msg.what) {
 				case 0:
-					
+					//TODO SENDING DATA TO SERVER
 					break;
 				}
 				super.handleMessage(msg);
@@ -101,5 +137,12 @@ public class ResultActivity extends Activity implements SensorEventListener {
 
 	private void humidityManager(float[] values) {
 		result.setText(Float.toString(values[0]));
+	}
+	
+	public boolean isOnline() {
+		if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+			return true;
+		}
+		return false;
 	}
 }
