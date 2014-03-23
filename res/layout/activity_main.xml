@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
-        android:text="@string/MainButton1" />
+        android:text="@string/Sensor" />
 
     <Button
         android:id="@+id/btnServer"
@@ -24,7 +24,7 @@
         android:layout_below="@+id/btnSensor"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="@string/MainButton2" />
+        android:text="@string/Server" />
 
     <Button
         android:id="@+id/Settings"
@@ -33,7 +33,7 @@
         android:layout_below="@+id/btnServer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:text="@string/MainButton3" />
+        android:text="@string/Settings" />
 
     <Button
         android:id="@+id/Exit"
@@ -42,6 +42,6 @@
         android:layout_below="@+id/Settings"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:text="@string/MainButton4" />
+        android:text="@string/Exit" />
 
 </RelativeLayout>

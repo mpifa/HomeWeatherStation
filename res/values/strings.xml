@@ -3,10 +3,10 @@
 
     <string name="app_name">Home Weather Station</string>
     <string name="action_settings">Settings</string>
-    <string name="MainButton1">Consultar sensores</string>
-    <string name="MainButton2">Consultar servidor</string>
-    <string name="MainButton3">Configuración</string>
-    <string name="MainButton4">Salir</string>
+    <string name="Sensor">Consultar sensores</string>
+    <string name="Server">Consultar servidor</string>
+    <string name="Settings">Configuración</string>
+    <string name="Exit">Salir</string>
     <string name="title_activity_server"></string>
     <string name="title_activity_sensor"></string>
     <string name="title_activity_result"></string>
