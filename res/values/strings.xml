@@ -5,12 +5,14 @@
     <string name="action_settings">Settings</string>
     <string name="Sensor">Consultar sensores</string>
     <string name="Server">Consultar servidor</string>
-    <string name="Settings">Configuración</string>
+    <string name="Settings">GET FROM NODE</string>
     <string name="Exit">Salir</string>
     <string name="title_activity_server"></string>
     <string name="title_activity_sensor"></string>
     <string name="title_activity_result"></string>
-    <string name="title_activity_noise">NoiseActivity</string>
+    <string name="title_activity_noise"></string>
     <string name="hello_world">Hello world!</string>
+    <string name="register">Register</string>
+    <string name="title_activity_server_result"></string>
 
 </resources>
